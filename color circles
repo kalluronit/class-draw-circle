@@ -1,0 +1,43 @@
+import pygame, sys
+from pygame.locals import QUIT
+
+pygame.init()
+SCREEN = pygame.display.set_mode((600,600))
+pygame.display.set_caption('circles')
+
+black = (0,0,0)
+white = (255,255,255)
+red = (255,0,0)
+green = (0,255,0)
+blue = (0,0,255)
+
+SCREEN.fill('white')
+pygame.display.update()
+
+while True:
+    class Circ:
+        def __init__(self, color, center, radius):
+            self.circle_surf = SCREEN
+            self.circle_color = color
+            self.circle_center = center
+            self.circle_radius = radius
+            
+        def draw(self):
+            self.Draw_Circ= pygame.draw.circle(self.circle_surf, self.circle_color, self.circle_center , self.circle_radius )
+        
+    greenCirc=Circ(green,(100,100), 10)
+    redCirc=Circ(red,(150,150), 20)
+    blueCirc=Circ(blue,(200,200), 30)
+
+    greenCirc.draw()
+    redCirc.draw()
+    blueCirc.draw()
+    for event in pygame.event.get():
+       if event.type==QUIT:
+            pygame.quit()
+            sys.exit()
+
+    pygame.display.update()
+
+
+ 
